@@ -16,10 +16,37 @@ VenueBuddy uses a dual-engine approach to solve venue congestion:
 -   **Frontend**: A modern React dashboard with a premium glassmorphic UI, offering a high-end feel for attendees.
 -   **Real-time Simulation**: The system simulates crowd flow to demonstrate the "Live Crowd Pulse" feature.
 
-## 🏗️ Tech Stack
--   **Frontend**: React (Vite), Vanilla CSS, Google Fonts.
--   **Backend**: Python (FastAPI), Uvicorn.
--   **AI**: Google AI (Gemini API).
+## ⚙️ How to Run
+
+### Backend (FastAPI)
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Start the server:
+   ```bash
+   uvicorn main:app --reload
+   ```
+   *The backend will be available at `http://localhost:8000`.*
+
+### Frontend (React)
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   *The frontend will be available at `http://localhost:5173` (or the port shown in your terminal).*
 
 ## 📝 Assumptions
 -   The stadium has IoT sensors or camera-based counting at major bottlenecks (gates, restrooms, food courts).

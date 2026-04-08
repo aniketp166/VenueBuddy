@@ -18,12 +18,31 @@ async def root():
 
 @app.get("/api/crowd-stats")
 async def get_crowd_stats():
-    # Placeholder for crowd data
+    # Realistic mock data for a large venue
     return {
-        "stadium_occupancy": "75%",
-        "gate_a_wait": "5 mins",
-        "gate_b_wait": "12 mins",
-        "food_court_status": "busy"
+        "stadium_occupancy": "82%",
+        "active_events": ["Main Match: Team A vs Team B"],
+        "facilities": [
+            {"name": "Gate A", "wait_time": "4 min", "status": "clear"},
+            {"name": "Gate B", "wait_time": "15 min", "status": "busy"},
+            {"name": "Restroom North", "wait_time": "2 min", "status": "clear"},
+            {"name": "Restroom South", "wait_time": "8 min", "status": "moderate"},
+            {"name": "Food Zone 1", "wait_time": "12 min", "status": "busy"},
+            {"name": "Merchandise", "wait_time": "5 min", "status": "clear"}
+        ],
+        "weather": "24°C, Clear Skies"
+    }
+
+@app.get("/api/seating")
+async def get_seating_status():
+    # Mock seating sections
+    return {
+        "sections": [
+            {"id": "N1", "status": "full", "color": "#ef4444"},
+            {"id": "N2", "status": "available", "color": "#22c55e"},
+            {"id": "S1", "status": "crowded", "color": "#f59e0b"},
+            {"id": "S2", "status": "available", "color": "#22c55e"}
+        ]
     }
 
 if __name__ == "__main__":

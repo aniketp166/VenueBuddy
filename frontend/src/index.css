@@ -35,6 +35,7 @@ h1 {
   line-height: 1.1;
   margin-bottom: 0.2em;
   background: linear-gradient(90deg, #38bdf8, #818cf8);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -75,52 +76,94 @@ h2 {
   letter-spacing: -0.025em;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-.stat-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 1rem;
-  background: rgba(15, 23, 42, 0.5);
-  border-radius: 0.75rem;
-}
-
-.label {
-  color: #94a3b8;
-  font-size: 0.9rem;
-}
-
-.value {
-  color: #38bdf8;
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.chat-placeholder {
+.stats-list {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stat-summary {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 1rem;
 }
 
-input[type="text"] {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.75rem;
-  padding: 0.75rem 1rem;
-  color: white;
-  width: 100%;
-  box-sizing: border-box;
+.facility-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 1rem;
+  border-left: 4px solid #94a3b8;
+  text-align: left;
 }
 
-input[type="text"]:focus {
-  outline: none;
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+.facility-item .name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.facility-item .wait {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.status-clear { border-left-color: #22c55e; }
+.status-clear .wait { color: #22c55e; }
+
+.status-moderate { border-left-color: #f59e0b; }
+.status-moderate .wait { color: #f59e0b; }
+
+.status-busy { border-left-color: #ef4444; }
+.status-busy .wait { color: #ef4444; }
+
+.chat-interface {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.message {
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 0.95rem;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.bot {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.chat-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.btn-send {
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-send:hover {
+  opacity: 0.9;
 }
 
 footer {

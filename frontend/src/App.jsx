@@ -32,18 +32,19 @@ function App() {
             {loading ? (
               <p>Loading stats...</p>
             ) : stats ? (
-              <div className="stats-grid">
-                <div className="stat-item">
-                  <span className="label">Occupancy</span>
-                  <span className="value">{stats.stadium_occupancy}</span>
+              <div className="stats-list">
+                <div className="stat-summary">
+                  <span>Occupancy: <strong>{stats.stadium_occupancy}</strong></span>
+                  <span> | </span>
+                  <span>{stats.weather}</span>
                 </div>
-                <div className="stat-item">
-                  <span className="label">Gate A Wait</span>
-                  <span className="value">{stats.gate_a_wait}</span>
-                </div>
-                <div className="stat-item">
-                  <span className="label">Food Court</span>
-                  <span className="value">{stats.food_court_status}</span>
+                <div className="facilities-grid">
+                  {stats.facilities.map((f, i) => (
+                    <div key={i} className={`facility-item status-${f.status}`}>
+                      <span className="name">{f.name}</span>
+                      <span className="wait">{f.wait_time}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             ) : (
@@ -52,10 +53,15 @@ function App() {
           </div>
 
           <div className="card glass">
-            <h2>AI Assistant</h2>
-            <div className="chat-placeholder">
-              <p>How can I help you today?</p>
-              <input type="text" placeholder="Ask about restrooms, food, or exits..." />
+            <h2>Venue Buddy AI</h2>
+            <div className="chat-interface">
+              <div className="message bot">
+                Hello! I can help you find the shortest lines for food or restrooms. What do you need?
+              </div>
+              <div className="chat-input">
+                <input type="text" placeholder="e.g., Where is the nearest clear restroom?" />
+                <button className="btn-send">Send</button>
+              </div>
             </div>
           </div>
         </section>
